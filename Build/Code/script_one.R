@@ -60,5 +60,3 @@ plot3 <-ggplot(data= covidIL,
   theme(legend.position = "none")
 
 show(plot3)
-#Daily Percentage Change in New Cases, 
-#Tests, Daily Percentage Change in Deaths
