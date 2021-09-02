@@ -12,17 +12,22 @@ library(readr)
 DIF <- function(x){
   return(x - lag(x))
 }
+delta<- function(x){
+  return((x - lag(x))/lag(x))
+}
 
 covidIL <- read_csv("Data/ILCovid19.csv", 
                       col_types = cols(Date = col_date(format = "%m/%d/%Y")))
 covidIL <- covidIL %>%
-  mutate(new_cases = DIF(Cases),
+  mutate(pc_cases = delta(Cases),
+         pc_tests = delta(Tests),
+         pc_deaths = delta(Deaths),
+         new_cases = DIF(Cases),
          new_tests = DIF(Tests),
-         new_deaths= DIF(Deaths))
-covidIL <- covidIL %>%
-  mutate(pc_cases = new_cases/lag(Cases),
-         pc_tests = new_tests/lag(Tests),
-         pc_deaths= new_deaths/lag(Deaths))
+         new_deaths= DIF(Deaths),
+         dpc_cases = delta(new_cases),
+         dpc_tests = delta(new_tests),
+         dpc_deaths= delta(new_deaths))
 (covidIL)
 
 # plot(covidIL$Date, 
@@ -33,7 +38,7 @@ covidIL <- covidIL %>%
 #      type ="l")
 
 plot1 <-ggplot(data= covidIL, 
-               aes(x = Date, y = pc_cases, color = 'Red')) +
+               aes(x = Date, y = dpc_cases, color = 'Red')) +
   geom_line() + 
   labs(title = 'Daily Percentage Change in New Cases',
        x = 'Date',
