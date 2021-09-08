@@ -10,7 +10,7 @@ library(readr)
 library(tidycensus)
 states <- c("maryland","pennsylvania","new-jersey","virginia","delaware")
 state_nums <- c(24,42,34,51,10)
-df <- list()
+votes <-{}
 for(state in states){
 
   url <- paste0("https://www.nytimes.com/elections/2016/results/", state) 
@@ -27,12 +27,12 @@ for(state in states){
     mutate("Clinton" = as.numeric(gsub(",","", Clinton)),
            "Trump" = as.numeric(gsub(",","", Trump)),
            "pctClinton" = Clinton/(Clinton + Trump),
-           "pctTrump" = Trump/(Clinton + Trump)))
+           "pctTrump" = Trump/(Clinton + Trump),
+           "state", state))
   assign(state, temp)
-  temp['state'] = state
-  df<-rbind(df, temp)
+  votes<- rbind(votes,temp)
 }
-
+save("votes",votes, file="./Build/Output/votes.RData")
 #API Data
 vars<-c("B01001_001","B01001_002","B02001_001","B02001_002", 
         "B02001_003","B05001_001","B05001_006","B07001_001", 
@@ -76,4 +76,7 @@ for(num in state_nums){
 }
 census.1
 
-
+library(httr)
+library(jsonlite)
+covid<- GET("https://data.cdc.gov/resource/n8mc-b4w4.json")
+covid.2 <- fromJSON(rawToChar(covid$content))

@@ -8,6 +8,7 @@ library(tidyverse)
 library(rvest)
 library(readr)
 library(tidycensus)
+library(sf)
 states <- c("maryland","pennsylvania","new-jersey","virginia","delaware")
 state_nums <- c(24,42,34,51,10)
 df <- list()
@@ -37,7 +38,7 @@ for(state in states){
 vars<-c("B01001_001","B01001_002","B02001_001","B02001_002", 
         "B02001_003","B05001_001","B05001_006","B07001_001", 
         "B07001_017","B07001_033","B07001_049","B07001_065","B07001_081")
-census.1 <- list()
+census.1 <- {}
 for(num in state_nums){
   acs <- get_acs(geography = "county",
                  variables = vars,
