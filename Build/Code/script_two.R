@@ -8,8 +8,9 @@ library(tidyverse)
 library(rvest)
 library(readr)
 library(tidycensus)
-states <- c("maryland","pennsylvania","new-jersey","virginia","delaware")
-state_nums <- c(24,42,34,51,10)
+#states <- c("maryland","pennsylvania","new-jersey","virginia","delaware")
+#state_nums <- c(24,42,34,51,10)
+states<-c("kentucky","indiana","illinois","missouri","wisconsin","iowa") 
 votes <-{}
 for(state in states){
 
@@ -28,8 +29,8 @@ for(state in states){
            "Trump" = as.numeric(gsub(",","", Trump)),
            "pctClinton" = Clinton/(Clinton + Trump),
            "pctTrump" = Trump/(Clinton + Trump),
-           "state", state))
-  assign(state, temp)
+           "State" = state))
+  #assign(state, temp)
   votes<- rbind(votes,temp)
 }
 save("votes",votes, file="./Build/Output/votes.RData")

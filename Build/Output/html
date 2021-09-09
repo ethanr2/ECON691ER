@@ -1,0 +1,64 @@
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Wed, Sep 08, 2021 - 6:56:22 PM
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lcccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-5} 
+\\[-1.8ex] & \multicolumn{4}{c}{pctClinton} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
+\hline \\[-1.8ex] 
+ perWhite & $-$0.896$^{***}$ & 0.320$^{***}$ & $-$0.593$^{***}$ & $-$0.775$^{***}$ \\ 
+  & (0.052) & (0.006) & (0.052) & (0.042) \\ 
+  & & & & \\ 
+ perMale &  &  & 1.665$^{***}$ & $-$1.084$^{***}$ \\ 
+  &  &  & (0.109) & (0.199) \\ 
+  & & & & \\ 
+ perSameCounty &  &  & 0.995$^{***}$ & 0.564$^{***}$ \\ 
+  &  &  & (0.175) & (0.136) \\ 
+  & & & & \\ 
+ perSameSt &  &  & $-$1.115$^{***}$ & 0.381$^{**}$ \\ 
+  &  &  & (0.231) & (0.178) \\ 
+  & & & & \\ 
+ perOthState &  &  & $-$1.173$^{***}$ & $-$0.265 \\ 
+  &  &  & (0.316) & (0.230) \\ 
+  & & & & \\ 
+ perAbroad &  &  & 8.680$^{***}$ & 4.888$^{***}$ \\ 
+  &  &  & (1.657) & (1.177) \\ 
+  & & & & \\ 
+ factor(state)illinois &  &  &  & 1.515$^{***}$ \\ 
+  &  &  &  & (0.109) \\ 
+  & & & & \\ 
+ factor(state)indiana &  &  &  & 1.488$^{***}$ \\ 
+  &  &  &  & (0.109) \\ 
+  & & & & \\ 
+ factor(state)iowa &  &  &  & 1.568$^{***}$ \\ 
+  &  &  &  & (0.109) \\ 
+  & & & & \\ 
+ factor(state)kentucky &  &  &  & 1.443$^{***}$ \\ 
+  &  &  &  & (0.108) \\ 
+  & & & & \\ 
+ factor(state)missouri &  &  &  & 1.429$^{***}$ \\ 
+  &  &  &  & (0.108) \\ 
+  & & & & \\ 
+ factor(state)wisconsin &  &  &  & 1.623$^{***}$ \\ 
+  &  &  &  & (0.109) \\ 
+  & & & & \\ 
+ Constant & 1.135$^{***}$ &  &  &  \\ 
+  & (0.049) &  &  &  \\ 
+  & & & & \\ 
+\hline \\[-1.8ex] 
+Observations & 600 & 600 & 600 & 600 \\ 
+R$^{2}$ & 0.330 & 0.835 & 0.911 & 0.957 \\ 
+Adjusted R$^{2}$ & 0.329 & 0.835 & 0.911 & 0.956 \\ 
+Residual Std. Error & 0.096 (df = 598) & 0.133 (df = 599) & 0.097 (df = 594) & 0.068 (df = 588) \\ 
+F Statistic & 294.675$^{***}$ (df = 1; 598) & 3,028.721$^{***}$ (df = 1; 599) & 1,018.666$^{***}$ (df = 6; 594) & 1,094.425$^{***}$ (df = 12; 588) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 
