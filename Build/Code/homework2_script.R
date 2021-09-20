@@ -4,12 +4,11 @@
 
 rm(list=ls())
 
-library(tidyverse)
 library(rvest)
 library(readr)
 library(tidycensus)
 library(sf)
-
+library(tidyverse)
 
 # Part 1 ------------------------------------------------------------------
 #States assigned to me:
@@ -40,7 +39,7 @@ for(state in states){
   VOTES<-rbind(VOTES, temp)
 }
 #Cleaning up the environment by removing all irrelevant variables.
-rm(temp, tables, webpage,results, url, state)
+rm(temp, tables, webpage, results, url, state)
 #Some county names are inconsistent with the census names, so we can fix them here. 
 VOTES$County[which(VOTES$County=="DeWitt")]<-"De Witt"
 VOTES$County[which(VOTES$County=="JoDaviess")]<-"Jo Daviess"
@@ -114,21 +113,11 @@ get_census_data <- function(t){
 }
 
 CENSUS.1 <- get_census_data(2016)
-head(CENSUS.1)
 CENSUS.2 <- get_census_data(2019)
-head(CENSUS.2)
 
+rm(get_census_data)
+save.image(file="./Build/Output/census.RData")
 
-#This part is sloppy but for some reason I can't filter the "geometry" column any other way?
-CENSUS.3 <- CENSUS.1[c("GEOID", "state", "county", "geometry")]
-(cols <- CENSUS.1 %>%
-  select(!c("GEOID", "state", "county", "geometry")) %>% # Notice I'm trying to filter geometry, but it remains in the dataframe??
-  colnames())
-
-for(col in cols){
-  if(col != "geometry"){
-    print(CENSUS.2[col])
-    CENSUS.3[col] = CENSUS.2[col] - CENSUS.1[col]
-  }
-}
-
+#Note: I split this into two separate files because there appears to be some 
+#kind of glitch in one of the packages loaded in this script. Filtering will not
+#work properly, please restart R and then run homework2_2script.R. 
