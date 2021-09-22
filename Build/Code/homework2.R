@@ -5,13 +5,16 @@
 rm(list=ls())
 
 library(tidyverse)
+library(dplyr)
+library(ggplot2)
 library(rvest)
 library(readr)
 library(tidycensus)
 library(sf)
+library(cowplot)
 
 #Set this to true if you want to requery the census data. 
-query = FALSE
+query = TRUE
 
 # Part 1 ------------------------------------------------------------------
 #States assigned to me:
@@ -95,18 +98,8 @@ get_census_data <- function(t){
     ifelse(k==1,
            census<-temp, 
            census<-rbind(census, temp))
-    
-    temp$area<-st_area(temp)
-    map <- temp %>%
-      summarise(area = sum(area)) %>%
-      mutate(state = states[k])
-    
-    ifelse(k==1,
-           MAP<-map, 
-           MAP<-rbind(MAP, map))
-    
+  
     k<- k + 1
-    rm(temp, map)
   }
   return(census)
 }
@@ -121,7 +114,10 @@ if (query){
 #Cleaning up the environment by removing all irrelevant variables.
 rm(get_census_data, get_vote_data, query)
 
+#Clean up the dataframes to prepare for merge.
 CENSUS.1 <- CENSUS.1 %>%
+  mutate(county = gsub("city", "City", county))
+CENSUS.2 <- CENSUS.2 %>%
   mutate(county = gsub("city", "City", county))
 
 VOTES$County[which(VOTES$County=="Alexandria")]<-"Alexandria City"
@@ -151,23 +147,22 @@ VOTES$County[which(VOTES$County=="Petersburg")] <-"Petersburg City"
 VOTES$County[which(VOTES$County=="Poquoson")] <-"Poquoson City"
 VOTES$County[which(VOTES$County=="Portsmouth")] <-"Portsmouth City"
 VOTES$County[which(VOTES$County=="Radford")] <-"Radford City"
-VOTES$County[which(VOTES$County=="Salem")] <-"Salem City"
 VOTES$County[which(VOTES$County=="Staunton")] <-"Staunton City"
 VOTES$County[which(VOTES$County=="Suffolk")] <-"Suffolk City"
-VOTES$County[which(VOTES$County=="Salem")] <-"Salem City"
+VOTES$County[which(VOTES$County=="Salem" & VOTES$state =="virginia")] <-"Salem City"
 VOTES$County[which(VOTES$County=="Virginia Beach")] <-"Virginia Beach City"
 VOTES$County[which(VOTES$County=="Waynesboro")] <-"Waynesboro City"
 VOTES$County[which(VOTES$County=="Williamsburg")] <-"Williamsburg City"
 VOTES$County[which(VOTES$County=="Winchester")] <-"Winchester City"
-# Part 2 ------------------------------------------------------------------
+#Calculate the difference in percentage for each statistic.
 non_nums <- c("GEOID", "state", "county", "geometry") #Non-numeric column labels
 CENSUS.3 <- CENSUS.1[non_nums]
 cols <- CENSUS.1 %>% #Numeric column labels
   st_drop_geometry() %>%
   select(!c("GEOID", "state", "county")) %>% 
   colnames()
-
 CENSUS.3[cols] = st_drop_geometry(CENSUS.2[cols]) - st_drop_geometry(CENSUS.1[cols])
+#Merge CENSUS.3 with VOTES. 
 core <- merge(CENSUS.3, 
               VOTES, 
               by.x=c("state", "county"), 
@@ -176,6 +171,35 @@ core <- merge(CENSUS.3,
 
 rm(cols, non_nums)
 
-#Note: I split this into two separate files because there appears to be some 
-#kind of glitch in one of the packages loaded in this script. Filtering will not
-#work properly, please restart R and then run homework2_2script.R. 
+# Part 3 ------------------------------------------------------------------
+map1<-ggplot(core)+
+  geom_sf(aes(fill = pctClinton))+
+  scale_fill_gradient(low="white",
+                      high="blue",
+                      limits=c(0,1),
+                      labels = scales::percent,
+                      aes(name="Clinton Vote Share"))+
+  theme(panel.grid.major=element_blank(),
+        panel.grid.minor=element_blank(),
+        panel.background=element_blank(),
+        axis.text.x=element_blank(),
+        axis.text.y=element_blank(),
+        axis.line = element_blank(),
+        axis.ticks = element_blank())
+map2<-ggplot(core)+ 
+  geom_sf(aes(fill = perWhite))+
+  scale_fill_gradient(low="black",
+                      high="white",
+                      labels = scales::percent,
+                      aes(name="Change in White Population"))+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.text.x=element_blank(),
+        axis.text.y = element_blank(),
+        axis.line = element_blank(),
+        axis.ticks = element_blank())
+
+plot_grid(map1,map2)
+
+
