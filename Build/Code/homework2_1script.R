@@ -4,11 +4,14 @@
 
 rm(list=ls())
 
+library(tidyverse)
 library(rvest)
 library(readr)
 library(tidycensus)
 library(sf)
-library(tidyverse)
+
+#Set this to true if you want to requery the census data. 
+query = FALSE
 
 # Part 1 ------------------------------------------------------------------
 #States assigned to me:
@@ -16,37 +19,33 @@ states <- c("maryland","pennsylvania","new-jersey","virginia","delaware")
 #Fips code for each state:
 state_nums <- c(24,42,34,51,10)
 
-VOTES <- {}
-
-for(state in states){
-
-  url <- paste0("https://www.nytimes.com/elections/2016/results/", state) 
-  webpage <- read_html(url)
-  tables <- webpage %>%
-    html_nodes("table")
+get_vote_data <- function(){
+  VOTES <- {}
   
-  (results <- tables[2] %>%
-    html_table(header = TRUE, fill = TRUE) %>%
-    as.data.frame())
+  for(state in states){
   
-  (temp<- results %>%
-    rename("County" = "Vote.by.county") %>%
-    mutate("Clinton" = as.numeric(gsub(",","", Clinton)),
-           "Trump" = as.numeric(gsub(",","", Trump)),
-           "pctClinton" = Clinton/(Clinton + Trump),
-           "pctTrump" = Trump/(Clinton + Trump)))
-  temp['state'] = state
-  VOTES<-rbind(VOTES, temp)
+    url <- paste0("https://www.nytimes.com/elections/2016/results/", state) 
+    webpage <- read_html(url)
+    tables <- webpage %>%
+      html_nodes("table")
+    
+    (results <- tables[2] %>%
+      html_table(header = TRUE, fill = TRUE) %>%
+      as.data.frame())
+    
+    (temp<- results %>%
+      rename("County" = "Vote.by.county") %>%
+      mutate("Clinton" = as.numeric(gsub(",","", Clinton)),
+             "Trump" = as.numeric(gsub(",","", Trump)),
+             "pctClinton" = Clinton/(Clinton + Trump),
+             "pctTrump" = Trump/(Clinton + Trump)))
+    temp['state'] = state
+    VOTES<-rbind(VOTES, temp)
+  }
+  return(VOTES)
 }
-#Cleaning up the environment by removing all irrelevant variables.
-rm(temp, tables, webpage, results, url, state)
-#Some county names are inconsistent with the census names, so we can fix them here. 
-VOTES$County[which(VOTES$County=="DeWitt")]<-"De Witt"
-VOTES$County[which(VOTES$County=="JoDaviess")]<-"Jo Daviess"
-VOTES$County[which(VOTES$County=="LaClede")]<-"Laclede"
-VOTES$County[which(VOTES$County=="LaRue")]<-"Larue"
-VOTES$County[which(VOTES$County=="St. Louis City")]<-"St. Louis city"
-VOTES$County[which(VOTES$County=="St. Louis County")]<-"St. Louis"
+
+
 # Part 2 ------------------------------------------------------------------
 #Function to scrape census data. The parameter t is the year of interest.
 get_census_data <- function(t){
@@ -111,12 +110,71 @@ get_census_data <- function(t){
   }
   return(census)
 }
+if (query){
+  VOTES <- get_vote_data()
+  CENSUS.1 <- get_census_data(2016)
+  CENSUS.2 <- get_census_data(2019)
+  save.image(file="./Build/Output/census.RData")
+} else{
+  load(file="./Build/Output/census.RData") 
+}
+#Cleaning up the environment by removing all irrelevant variables.
+rm(get_census_data, get_vote_data, query)
 
-CENSUS.1 <- get_census_data(2016)
-CENSUS.2 <- get_census_data(2019)
+CENSUS.1 <- CENSUS.1 %>%
+  mutate(county = gsub("city", "City", county))
 
-rm(get_census_data)
-save.image(file="./Build/Output/census.RData")
+VOTES$County[which(VOTES$County=="Alexandria")]<-"Alexandria City"
+VOTES$County[which(VOTES$County=="Bristol")]<-"Bristol City"
+VOTES$County[which(VOTES$County=="Buena Vista")]<-"Buena Vista City"
+VOTES$County[which(VOTES$County=="Charlottesville")]<-"Charlottesville City"
+VOTES$County[which(VOTES$County=="Chesapeake")]<-"Chesapeake City"
+VOTES$County[which(VOTES$County=="Colonial Heights")]<-"Colonial Heights City"
+VOTES$County[which(VOTES$County=="Covington")] <- "Covington City"
+VOTES$County[which(VOTES$County=="Danville")] <- "Danville City"
+VOTES$County[which(VOTES$County=="Emporia")] <- "Emporia City"
+VOTES$County[which(VOTES$County=="Falls Church")] <- "Falls Church City"
+VOTES$County[which(VOTES$County=="Fredericksburg")] <- "Fredericksburg City"
+VOTES$County[which(VOTES$County=="Galax")] <- "Galax City"
+VOTES$County[which(VOTES$County=="Hampton")] <- "Hampton City"
+VOTES$County[which(VOTES$County=="Harrisonburg")] <-"Harrisonburg City"
+VOTES$County[which(VOTES$County=="Hopewell")] <-"Hopewell City"
+VOTES$County[which(VOTES$County=="Lexington")] <-"Lexington City"
+VOTES$County[which(VOTES$County=="Manassas")] <-"Manassas City"
+VOTES$County[which(VOTES$County=="Manassas Park")] <-"Manassas Park City"
+VOTES$County[which(VOTES$County=="Lynchburg")] <-"Lynchburg City"
+VOTES$County[which(VOTES$County=="Martinsville")] <-"Martinsville City"
+VOTES$County[which(VOTES$County=="Newport News")] <-"Newport News City"
+VOTES$County[which(VOTES$County=="Norfolk")] <-"Norfolk City"
+VOTES$County[which(VOTES$County=="Norton")] <-"Norton City"
+VOTES$County[which(VOTES$County=="Petersburg")] <-"Petersburg City"
+VOTES$County[which(VOTES$County=="Poquoson")] <-"Poquoson City"
+VOTES$County[which(VOTES$County=="Portsmouth")] <-"Portsmouth City"
+VOTES$County[which(VOTES$County=="Radford")] <-"Radford City"
+VOTES$County[which(VOTES$County=="Salem")] <-"Salem City"
+VOTES$County[which(VOTES$County=="Staunton")] <-"Staunton City"
+VOTES$County[which(VOTES$County=="Suffolk")] <-"Suffolk City"
+VOTES$County[which(VOTES$County=="Salem")] <-"Salem City"
+VOTES$County[which(VOTES$County=="Virginia Beach")] <-"Virginia Beach City"
+VOTES$County[which(VOTES$County=="Waynesboro")] <-"Waynesboro City"
+VOTES$County[which(VOTES$County=="Williamsburg")] <-"Williamsburg City"
+VOTES$County[which(VOTES$County=="Winchester")] <-"Winchester City"
+# Part 2 ------------------------------------------------------------------
+non_nums <- c("GEOID", "state", "county", "geometry") #Non-numeric column labels
+CENSUS.3 <- CENSUS.1[non_nums]
+cols <- CENSUS.1 %>% #Numeric column labels
+  st_drop_geometry() %>%
+  select(!c("GEOID", "state", "county")) %>% 
+  colnames()
+
+CENSUS.3[cols] = st_drop_geometry(CENSUS.2[cols]) - st_drop_geometry(CENSUS.1[cols])
+core <- merge(CENSUS.3, 
+              VOTES, 
+              by.x=c("state", "county"), 
+              by.y=c("state", "County"),
+              all =TRUE)
+
+rm(cols, non_nums)
 
 #Note: I split this into two separate files because there appears to be some 
 #kind of glitch in one of the packages loaded in this script. Filtering will not
