@@ -157,7 +157,8 @@ VOTES$County[which(VOTES$County=="Winchester")] <-"Winchester City"
 #Calculate the difference in percentage for each statistic.
 non_nums <- c("GEOID", "state", "county", "geometry") #Non-numeric column labels
 CENSUS.3 <- CENSUS.1[non_nums]
-cols <- CENSUS.1 %>% #Numeric column labels
+#Numeric column labels
+cols <- CENSUS.1 %>% 
   st_drop_geometry() %>%
   select(!c("GEOID", "state", "county")) %>% 
   colnames()
