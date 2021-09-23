@@ -10,7 +10,6 @@ library(tidyverse)
 load(file="./Build/Output/census.RData")
 rm(CENSUS.1, VOTES, query, get_census_data, get_vote_data)
 # Part 1 ------------------------------------------------------------------
-raw <- read_csv("Data/countypres_2000-2020.csv")
 df <- read_csv("Data/countypres_2000-2020.csv") %>%
   mutate(state= tolower(state),
          state = gsub("new jersey", "new-jersey",state),
@@ -48,13 +47,15 @@ print(grepl("^.+(city)$", df$county))
   subset(year ==2016)%>%
   group_by(state,county,party))
 
-#Setting up the dataframe with VOTES.2020 as a template
+
 (D_VOTES <- merge(VOTES.2020,
                  VOTES.2016,
                  by.x=c("state", "county","party"), 
                  by.y=c("state", "county","party")) %>%
-  mutate(vote_change = candidatevotes.x - candidatevotes.y))
+  mutate(vote_change = candidatevotes.x - candidatevotes.y) %>%
+    select(c("state", "county","party","vote_change")))
 
+rm(df, raw, bools)
 
 
 
