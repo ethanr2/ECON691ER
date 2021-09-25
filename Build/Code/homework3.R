@@ -4,59 +4,86 @@
 
 rm(list=ls())
 
-library(readr)
 library(tidyverse)
+library(scales)
+library(readr)
+library(sf)
+library(cowplot)
 
-load(file="./Build/Output/census.RData")
-rm(CENSUS.1, VOTES, query, get_census_data, get_vote_data)
+load(file="./Build/Output/census_processed.RData") # From homework2.R
+rm(CENSUS.1, core, map1, map2, VOTES, state_nums)
 # Part 1 ------------------------------------------------------------------
 df <- read_csv("Data/countypres_2000-2020.csv") %>%
   mutate(state= tolower(state),
-         state = gsub("new jersey", "new-jersey",state),
-         county = tolower(county_name)) %>%
+         state = gsub("new jersey", "new-jersey",state)) %>%
   subset(state %in% states &
            (year==2016 | year == 2020) &
            (office == "PRESIDENT" | office =="US PRESIDENT") &
            (party =="DEMOCRAT" | party == "REPUBLICAN")) %>%
   select(c("year",
            "state",
-           "county", 
-           "candidate", 
+           "county_fips",
            "party",
-           "candidatevotes", "mode"))
-#Cleaning up some naming inconsistencies
-#In 2020, many virginia counties appended "city" to their names
-bools <- grepl("^.+(city)$",df$county) & 
-  df$state == "virginia" &
-  df$year == 2020
-df[bools,] <- df[bools,] %>% 
-  mutate(county = gsub(" city", "", county))
+           "mode",
+           "candidatevotes")) %>%
+  group_by(year,state,county_fips, party) %>%
+  summarise(candidatevotes = sum(candidatevotes)) %>%
+  filter(!is.na(candidatevotes))
 
-df <- df %>%
-  group_by(year,state,county) %>%
-  mutate(sumvotes = sum(candidatevotes),
-         candidatevotes = candidatevotes/sumvotes)%>%
-  group_by(year,state,county,party) %>%
-  summarise(candidatevotes = sum(candidatevotes))
-print(grepl("^.+(city)$", df$county))
 
 (VOTES.2020 <- df %>%
-  subset(year==2020) %>%
-  group_by(state,county,party))
+  subset(year==2020))
 (VOTES.2016 <- df %>%
-  subset(year ==2016)%>%
-  group_by(state,county,party))
-
+  subset(year ==2016))
 
 (D_VOTES <- merge(VOTES.2020,
                  VOTES.2016,
-                 by.x=c("state", "county","party"), 
-                 by.y=c("state", "county","party")) %>%
-  mutate(vote_change = candidatevotes.x - candidatevotes.y) %>%
-    select(c("state", "county","party","vote_change")))
+                 all = TRUE,
+                 by.x=c("state", "county_fips", "party"), 
+                 by.y=c("state", "county_fips","party")) %>%
+  mutate(vote_change = candidatevotes.x- candidatevotes.y) %>%
+  select(c("state", "county_fips","party","vote_change")) %>%
+  reshape(timevar = "party",
+          idvar = c("state", "county_fips"),
+          direction = "wide")) 
+    
 
-rm(df, raw, bools)
+# Part 2 ------------------------------------------------------------------
 
+core <- merge(D_VOTES,
+                 CENSUS.2,
+                 by.x = c("state", "county_fips"),
+                 by.y = c("state", "GEOID")) 
+#%>%
+#  mutate(geometry = st_as_sf(geometry))
+map1<-ggplot(core)+
+  ggtitle("Democratic Presidential Candidate Votes: 2016 to 2020") +
+  geom_sf(aes(geometry = geometry, fill = vote_change.DEMOCRAT))+
+  scale_fill_gradient(low="white",
+                      high="blue",
+                      label = comma,
+                      aes(name="Change in Votes"))+
+  theme(panel.grid.major=element_blank(),
+        panel.grid.minor=element_blank(),
+        panel.background=element_blank(),
+        axis.text.x=element_blank(),
+        axis.text.y=element_blank(),
+        axis.line = element_blank(),
+        axis.ticks = element_blank())
+map2<-ggplot(core)+ 
+  ggtitle("Republican Presidential Candidate Votes: 2016 to 2020")+
+  geom_sf(aes(geometry = geometry, fill = vote_change.REPUBLICAN))+
+  scale_fill_gradient(low="white",
+                      high="red",
+                      label = comma,
+                      aes(name="Change in Votes"))+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        axis.text.x=element_blank(),
+        axis.text.y = element_blank(),
+        axis.line = element_blank(),
+        axis.ticks = element_blank())
 
-
+plot_grid(map1,map2)
 

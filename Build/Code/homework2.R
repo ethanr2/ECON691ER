@@ -107,9 +107,9 @@ if (query){
   VOTES <- get_vote_data()
   CENSUS.1 <- get_census_data(2016)
   CENSUS.2 <- get_census_data(2019)
-  save.image(file="./Build/Output/census.RData")
+  save.image(file="./Build/Output/census_raw.RData")
 } else{
-  load(file="./Build/Output/census.RData") 
+  load(file="./Build/Output/census_raw.RData") 
 }
 #Cleaning up the environment by removing all irrelevant variables.
 rm(get_census_data, get_vote_data, query)
@@ -174,12 +174,13 @@ rm(cols, non_nums)
 
 # Part 3 ------------------------------------------------------------------
 map1<-ggplot(core)+
+  ggtitle("2020 Election: Hilary Clinton Votes" )+
   geom_sf(aes(fill = pctClinton))+
   scale_fill_gradient(low="white",
                       high="blue",
                       limits=c(0,1),
                       labels = scales::percent,
-                      aes(name="Clinton Vote Share"))+
+                      aes(name="Vote Share"))+
   theme(panel.grid.major=element_blank(),
         panel.grid.minor=element_blank(),
         panel.background=element_blank(),
@@ -188,11 +189,12 @@ map1<-ggplot(core)+
         axis.line = element_blank(),
         axis.ticks = element_blank())
 map2<-ggplot(core)+ 
+  ggtitle("Change in White Population: 2016 to 2020") +
   geom_sf(aes(fill = perWhite))+
   scale_fill_gradient(low="black",
                       high="white",
                       labels = scales::percent,
-                      aes(name="Change in White Population"))+
+                      aes(name="Percent Change"))+
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         panel.background = element_blank(),
@@ -203,4 +205,4 @@ map2<-ggplot(core)+
 
 plot_grid(map1,map2)
 
-
+save.image(file="./Build/Output/census_processed.RData")
