@@ -49,7 +49,6 @@ df <- read_csv("Data/countypres_2000-2020.csv") %>%
     
 
 # Part 2 ------------------------------------------------------------------
-
 core <- merge(D_VOTES,
                  CENSUS.2,
                  by.x = c("state", "county_fips"),
@@ -57,12 +56,12 @@ core <- merge(D_VOTES,
 #%>%
 #  mutate(geometry = st_as_sf(geometry))
 map1<-ggplot(core)+
-  ggtitle("Democratic Presidential Candidate Votes: 2016 to 2020") +
+  ggtitle("Change in Democratic Presidential Candidate Votes: 2016 to 2020") +
   geom_sf(aes(geometry = geometry, fill = vote_change.DEMOCRAT))+
   scale_fill_gradient(low="white",
                       high="blue",
                       label = comma,
-                      aes(name="Change in Votes"))+
+                      aes(name="Votes"))+
   theme(panel.grid.major=element_blank(),
         panel.grid.minor=element_blank(),
         panel.background=element_blank(),
@@ -71,12 +70,12 @@ map1<-ggplot(core)+
         axis.line = element_blank(),
         axis.ticks = element_blank())
 map2<-ggplot(core)+ 
-  ggtitle("Republican Presidential Candidate Votes: 2016 to 2020")+
+  ggtitle("Change in Republican Presidential Candidate Votes: 2016 to 2020")+
   geom_sf(aes(geometry = geometry, fill = vote_change.REPUBLICAN))+
   scale_fill_gradient(low="white",
                       high="red",
                       label = comma,
-                      aes(name="Change in Votes"))+
+                      aes(name="Votes"))+
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         panel.background = element_blank(),
@@ -86,4 +85,37 @@ map2<-ggplot(core)+
         axis.ticks = element_blank())
 
 plot_grid(map1,map2)
+
+
+# Part 3 ------------------------------------------------------------------
+core <- merge(core,
+              CENSUS.3,
+              by.x = c("state", "county_fips"),
+              by.y = c("state", "GEOID"),
+              suffixes = c("2016", "2019")) %>%
+  mutate(d_perWhite = perWhite2019 - perWhite2016,
+         d_perMale = perMale2019 - perWhite2016)
+
+mod1 <-lm(vote_change.REPUBLICAN ~ perMale2019 + perWhite2019, core)
+summary(mod1)
+
+mod2 <-lm(vote_change.DEMOCRAT ~ perMale2019 + perWhite2019, core)
+summary(mod2)
+
+mod3 <- lm(vote_change.REPUBLICAN ~ d_perMale + d_perWhite, core)
+summary(mod3)
+
+mod4 <-lm(vote_change.DEMOCRAT ~ d_perMale + d_perWhite, core)
+summary(mod4)
+
+mod5 <- lm(vote_change.REPUBLICAN ~ d_perMale + d_perWhite + state, core)
+summary(mod5)
+
+mod6 <-lm(vote_change.DEMOCRAT ~ d_perMale + d_perWhite + state, core)
+summary(mod6)
+
+
+
+
+
 
