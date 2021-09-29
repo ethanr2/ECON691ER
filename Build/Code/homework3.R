@@ -84,6 +84,9 @@ map2<-ggplot(core)+
         axis.line = element_blank(),
         axis.ticks = element_blank())
 
+ggsave(map1, file="./Build/Output/d_democratic_votes.eps", device="eps")
+plot_grid(map1,map2)
+ggsave(map2, file="./Build/Output/d_republican_votes.eps", device="eps")
 plot_grid(map1,map2)
 
 
