@@ -1,3 +1,4 @@
+
 \documentclass[xcolor=dvipsnames, compress, t]{beamer}
 
 \usetheme{CambridgeUS}
@@ -10,6 +11,8 @@
 \usepackage{multicol}
 \usepackage{tikz}
 \usetikzlibrary{shapes.geometric, arrows}
+\usepackage{booktabs}
+
 
 \usepackage{dsfont}
 \usepackage{etoolbox}
@@ -100,39 +103,42 @@
 	\end{frame}
 	\begin{frame}{Brief Overview of Each State} 
 		\begin{center}
-			\resizebox{\textwidth}{!}{%
-			\begin{tabular}{ |p{0.16\linewidth}|p{0.16\linewidth}|p{0.16\linewidth}|p{0.16\linewidth}|p{0.16\linewidth}|p{0.16\linewidth}| } 
-				\hline
-				\multicolumn{6}{|c|}{Mid Atlantic States}		\\
-				\hline
-				{}           & Maryland & Pennsylvania & New Jersey & Virginia & Delaware\\
-				\hline 
-				Population   & 6,018,848& 12,791,530   & 8,878,503  & 8,454,463&  957,248\\ 
-				Largest City &Baltimore & Philadelphia &Newark  &Virginia Beach& Wilmington\\ 
-				Largest Industry (by number of employees) & Real estate&Health Care and Social Assistance &Health Care and Social Assistance & Health Care and Social Assistance & Finance and insurance \\
-				\hline
-			\end{tabular}}
+			
+			\begin{table}
+				\resizebox{\textwidth}{!}{%
+					\begin{tabular}{ |p{0.16\linewidth}|p{0.12\linewidth}|p{0.18\linewidth}|p{0.18\linewidth}|p{0.18\linewidth}|p{0.16\linewidth}| } 
+						\hline
+						\multicolumn{6}{|c|}{Mid Atlantic States}		\\
+						\hline
+						{}           & Maryland & Pennsylvania & New Jersey & Virginia & Delaware\\
+						\hline 
+						Population   & 6,018,848& 12,791,530   & 8,878,503  & 8,454,463&  957,248\\ 
+						Largest City &Baltimore & Philadelphia &Newark  &Virginia Beach& Wilmington\\ 
+						Largest Industry (by number of employees) & Real estate&Health Care and Social Assistance &Health Care and Social Assistance & Health Care and Social Assistance & Finance and insurance \\
+						\hline
+				\end{tabular}}
+				\label{}
+				\caption{https://www.bls.gov/oes/tables.htm}
+			\end{table}
+			
+			
 		\end{center}	
 	\end{frame}
 	
-	\begin{frame}{Quadratic Forms}
-		
-		{\color{Orchid} $$f(x) = bx^2$$} 
-		
-		\vspace{-\baselineskip}
-		
-		\begin{defin}
-			A \underline{quadratic form} on $\mathds{R}^k$ is a real-valued function of the form $$Q(x_1, ..., x_k) = \sum_{i, j=1}^k a_{ij} x_i x_j.$$
-		\end{defin} \pause
-		
-		Level curve:  $a_{11} x_1^2 + a_{12} x_1 x_2 + a_{22} x_2^2 = b$
-		
-		$\rightarrow$ ellipse, hyperbola, pair of lines, empty set (i.e. conic sections) 
-		
-		{\color{MidnightBlue} Common for econ: indifference curves}\pause
-		
-		\vs Matrix Representation (``Expansion around a matrix'')
-		$$\begin{pmatrix}x_1 & x_2 \end{pmatrix} \begin{pmatrix} a_{11} & a_{12} \\ 0 & a_{22} \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} $$
-		
+	\begin{frame}{Voting Patterns}
+		From 2016 to 2020, there have been clear shifts in the number of votes recieved by the two major candidates for the US Presidential Election.
+		\begin{figure}[1]
+			\centering
+			\includegraphics[width=1\textwidth]{vote_changes.eps}
+			\caption{Some of these changes could be explained by population growth, or changes in voter participation. To what extent can demography illustrate a fuller picture?}
+		\end{figure}
+	\end{frame}
+	\begin{frame}
+		\begin{minipage}{.50\linewidth}
+			peepee
+		\end{minipage}
+		\begin{minipage}{.40\linewidth}
+			\input{mod1.tex}
+		\end{minipage}
 	\end{frame}
 \end{document}

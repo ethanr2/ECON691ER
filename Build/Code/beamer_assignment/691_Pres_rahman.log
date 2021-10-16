@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.13)  16 OCT 2021 16:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.13)  16 OCT 2021 17:30
 entering extended mode
 **./691_Pres_rahman.tex
 (691_Pres_rahman.tex
@@ -862,30 +862,50 @@ File: tikzlibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 x
 File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \arrowsize=\dimen307
-)) (C:\Program Files\MiKTeX 2.9\tex/latex/doublestroke\dsfont.sty
+)) (C:\Program Files\MiKTeX 2.9\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen308
+\lightrulewidth=\dimen309
+\cmidrulewidth=\dimen310
+\belowrulesep=\dimen311
+\belowbottomsep=\dimen312
+\aboverulesep=\dimen313
+\abovetopsep=\dimen314
+\cmidrulesep=\dimen315
+\cmidrulekern=\dimen316
+\defaultaddspace=\dimen317
+\@cmidla=\count347
+\@cmidlb=\count348
+\@aboverulesep=\dimen318
+\@belowrulesep=\dimen319
+\@thisruleclass=\count349
+\@lastruleclass=\count350
+\@thisrulewidth=\dimen320
+)
+(C:\Program Files\MiKTeX 2.9\tex/latex/doublestroke\dsfont.sty
 Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 )
 (C:\Program Files\MiKTeX 2.9\tex/latex/accents\accents.sty
 Package: accents 2006/05/12 v1.4 Math Accent Tools
-\cc@skew=\dimen308
-\cc@wd=\dimen309
-\cc@code=\count347
-\cc@group=\count348
-\cc@skewchar=\count349
+\cc@skew=\dimen321
+\cc@wd=\dimen322
+\cc@code=\count351
+\cc@group=\count352
+\cc@skewchar=\count353
 )
 (C:\Program Files\MiKTeX 2.9\tex/latex/sgame\sgame.sty
 \sglabelsep=\skip66
-\sgcolsep=\dimen310
-\sg@colwd=\dimen311
-\sg@xcolwd=\dimen312
-\sg@colnum=\count350
-\sg@colindex=\count351
-\sg@numcols=\count352
-\sg@xnumcols=\count353
-\sg@rowindex=\count354
-\sg@numrows=\count355
+\sgcolsep=\dimen323
+\sg@colwd=\dimen324
+\sg@xcolwd=\dimen325
+\sg@colnum=\count354
+\sg@colindex=\count355
+\sg@numcols=\count356
+\sg@xnumcols=\count357
+\sg@rowindex=\count358
+\sg@numrows=\count359
 \sg@strutbox=\box126
-\sg@tempsep=\dimen313
+\sg@tempsep=\dimen326
 )
 (C:\Program Files\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf.sty
 Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
@@ -906,48 +926,48 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 )))
 (C:\Program Files\MiKTeX 2.9\tex/latex/wrapfig\wrapfig.sty
-\wrapoverhang=\dimen314
-\WF@size=\dimen315
-\c@WF@wrappedlines=\count356
+\wrapoverhang=\dimen327
+\WF@size=\dimen328
+\c@WF@wrappedlines=\count360
 \WF@box=\box127
 \WF@everypar=\toks47
 Package: wrapfig 2003/01/31  v 3.6
 )
 (C:\Program Files\MiKTeX 2.9\tex/latex/tabto-ltx\tabto.sty
 Package: tabto 2018/12/28  v 1.4  Another tabbing mechanism
-\CurrentLineWidth=\dimen316
-\TabPrevPos=\dimen317
+\CurrentLineWidth=\dimen329
+\TabPrevPos=\dimen330
 )
-\c@lemma=\count357
-\c@prop=\count358
-\c@defin=\count359
+\c@lemma=\count361
+\c@prop=\count362
+\c@defin=\count363
 
 (C:\Program Files\MiKTeX 2.9\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count360
+\l__color_backend_stack_int=\count364
 \l__pdf_internal_box=\box128
 )
 (691_Pres_rahman.aux)
 \openout1 = `691_Pres_rahman.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 84.
+LaTeX Font Info:    ... okay on input line 84.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -985,19 +1005,19 @@ LaTeX Font Info:    ... okay on input line 81.
 
 (C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count361
-\scratchdimen=\dimen318
+\scratchcounter=\count365
+\scratchdimen=\dimen331
 \scratchbox=\box129
-\nofMPsegments=\count362
-\nofMParguments=\count363
+\nofMPsegments=\count366
+\nofMParguments=\count367
 \everyMPshowfont=\toks48
-\MPscratchCnt=\count364
-\MPscratchDim=\dimen319
-\MPnumerator=\count365
-\makeMPintoPDFobject=\count366
+\MPscratchCnt=\count368
+\MPscratchDim=\dimen332
+\MPnumerator=\count369
+\makeMPintoPDFobject=\count370
 \everyMPtoPDFconversion=\toks49
 )
-Package hyperref Info: Link coloring OFF on input line 81.
+Package hyperref Info: Link coloring OFF on input line 84.
  (C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
@@ -1007,68 +1027,68 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (C:\Program Files\MiKTeX 2.9\tex/generic/gettitlestring\gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count367
+\c@section@level=\count371
 )
-LaTeX Info: Redefining \ref on input line 81.
-LaTeX Info: Redefining \pageref on input line 81.
-LaTeX Info: Redefining \nameref on input line 81.
+LaTeX Info: Redefining \ref on input line 84.
+LaTeX Info: Redefining \pageref on input line 84.
+LaTeX Info: Redefining \nameref on input line 84.
 
 (691_Pres_rahman.out) (691_Pres_rahman.out)
 \@outlinefile=\write5
 \openout5 = `691_Pres_rahman.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 81.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 84.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 81.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 84.
 \symnumbers=\mathgroup7
 \sympureletters=\mathgroup8
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 81.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 81.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 84.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 84.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 81.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 84.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 81.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 81.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 84.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 84.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 81.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 84.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 81.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 81.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 84.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 84.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 81.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 84.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 81.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 81.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 84.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 84.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 81.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 84.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 81.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 84.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 81.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 84.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 81.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 84.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 81.
+(Font)                  OT1/cmss/b/n --> OT1/cmr/b/n on input line 84.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 81.
+(Font)                  OT1/cmss/b/n --> OT1/cmss/b/n on input line 84.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 81.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/b/n on input line 84.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 81.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/b/it on input line 84.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 81.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 81.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/b/n on input line 84.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 84.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
 (Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 8
-1.
+4.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/cmss/b/it --> OT1/mathkerncmss/m/sl on input line 8
-1.
+4.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 81.
+ut line 84.
 
 (C:\Program Files\MiKTeX 2.9\tex/latex/translator\translator-basic-dictionary-E
 nglish.dict
@@ -1096,24 +1116,24 @@ Dictionary: translator-theorem-dictionary, Language: English
 ) (691_Pres_rahman.nav) [1
 
 {C:/Users/ethan/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 100
+LaTeX Font Info:    Trying to load font information for U+msa on input line 103
 .
 
 (C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 100
+LaTeX Font Info:    Trying to load font information for U+msb on input line 103
 .
 
 (C:\Program Files\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 1
-00.
+03.
 
 (C:\Program Files\MiKTeX 2.9\tex/latex/stmaryrd\ustmry.fd)
 LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on inp
-ut line 100.
+ut line 103.
 
 (C:\Program Files\MiKTeX 2.9\tex/latex/sansmathaccent\ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/ma
@@ -1122,79 +1142,120 @@ thkerncmss.
 <Rplot03_cropped.jpg, id=38, 648.17157pt x 328.97906pt>
 File: Rplot03_cropped.jpg Graphic file (type jpg)
 <use Rplot03_cropped.jpg>
-Package pdftex.def Info: Rplot03_cropped.jpg  used on input line 100.
+Package pdftex.def Info: Rplot03_cropped.jpg  used on input line 103.
 (pdftex.def)             Requested size: 308.06627pt x 156.36205pt.
 
-Overfull \hbox (136.91862pt too wide) in paragraph at lines 100--100
+Overfull \hbox (136.91862pt too wide) in paragraph at lines 103--103
 [][] 
  []
 
 [2
 
  <./Rplot03_cropped.jpg>]
-Overfull \hbox (3.8141pt too wide) in paragraph at lines 116--116
-[]\OT1/cmss/m/n/10.95 Pennsylvania| 
+Overfull \hbox (1.44887pt too wide) in paragraph at lines 126--126
+[]\OT1/cmss/m/n/10.95 Maryland| 
  []
 
 
-Overfull \hbox (0.71161pt too wide) in paragraph at lines 116--116
-[]\OT1/cmss/m/n/10.95 Philadelphia| 
+Overfull \hbox (3.33463pt too wide) in paragraph at lines 126--126
+[]\OT1/cmss/m/n/10.95 6,018,848| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--116
+Overfull \hbox (3.15213pt too wide) in paragraph at lines 126--126
+[]\OT1/cmss/m/n/10.95 Baltimore| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 126--126
 []\OT1/cmss/m/n/10.95 Virginia
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--116
+Underfull \hbox (badness 10000) in paragraph at lines 126--126
 []\OT1/cmss/m/n/10.95 Largest
  []
 
 
-Underfull \hbox (badness 7540) in paragraph at lines 116--116
+Underfull \hbox (badness 7540) in paragraph at lines 126--126
 \OT1/cmss/m/n/10.95 num-ber of
  []
 
 
-Underfull \hbox (badness 6428) in paragraph at lines 116--116
+Underfull \hbox (badness 1924) in paragraph at lines 126--126
+[]\OT1/cmss/m/n/10.95 Real es-
+ []
+
+
+Underfull \hbox (badness 6348) in paragraph at lines 126--126
+[]\OT1/cmss/m/n/10.95 Health Care
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 126--126
 \OT1/cmss/m/n/10.95 and So-cial
  []
 
 
-Underfull \hbox (badness 6428) in paragraph at lines 116--116
+Underfull \hbox (badness 6348) in paragraph at lines 126--126
+[]\OT1/cmss/m/n/10.95 Health Care
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 126--126
 \OT1/cmss/m/n/10.95 and So-cial
  []
 
 
-Underfull \hbox (badness 6428) in paragraph at lines 116--116
+Underfull \hbox (badness 6348) in paragraph at lines 126--126
+[]\OT1/cmss/m/n/10.95 Health Care
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 126--126
 \OT1/cmss/m/n/10.95 and So-cial
  []
+
+
+Package hyperref Warning: Ignoring empty anchor on input line 126.
 
 [3
 
 ]
-LaTeX Font Info:    Trying to load font information for U+dsrom on input line 1
-37.
- (C:\Program Files\MiKTeX 2.9\tex/latex/doublestroke\udsrom.fd
-File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-)
-Overfull \vbox (19.62486pt too high) detected at line 137
- []
+Package epstopdf Info: Source file: <vote_changes.eps>
+(epstopdf)                    date: 2021-10-16 16:43:50
+(epstopdf)                    size: 2342270 bytes
+(epstopdf)             Output file: <vote_changes-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-10-16 16:44:18
+(epstopdf)                    size: 811188 bytes
+(epstopdf)             Command: <miktex-epstopdf --outfile=vote_changes-eps-con
+verted-to.pdf vote_changes.eps>
+(epstopdf)             \includegraphics on input line 135.
+Package epstopdf Info: Output file is already uptodate.
 
+
+pdfTeX warning: pdflatex.exe (file ./vote_changes-eps-converted-to.pdf): PDF in
+clusion: found PDF version <1.7>, but at most version <1.5> allowed
+<vote_changes-eps-converted-to.pdf, id=51, 903.375pt x 301.125pt>
+File: vote_changes-eps-converted-to.pdf Graphic file (type pdf)
+<use vote_changes-eps-converted-to.pdf>
+Package pdftex.def Info: vote_changes-eps-converted-to.pdf  used on input line 
+135.
+(pdftex.def)             Requested size: 342.2953pt x 114.09785pt.
 [4
 
-]
-Overfull \vbox (19.62486pt too high) detected at line 137
+ <./vote_changes-eps-converted-to.pdf>] (mod1.tex
+Underfull \hbox (badness 4660) in paragraph at lines 33--33
+[]\OT1/cmss/m/n/10.95 Residual Std.
+ []
+
+Missing character: There is no   in font cmss10!
+Missing character: There is no   in font cmss10!
+)
+Overfull \vbox (4.04082pt too high) detected at line 143
  []
 
 [5
-
-]
-Overfull \vbox (19.62486pt too high) detected at line 137
- []
-
-[6
 
 ]
 \tf@nav=\write6
@@ -1211,26 +1272,20 @@ Package rerunfilecheck Info: File `691_Pres_rahman.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 26586 strings out of 478893
- 514179 string characters out of 2859193
- 820673 words of memory out of 3000000
- 43863 multiletter control sequences out of 15000+600000
- 411743 words of font info for 59 fonts, out of 8000000 for 9000
+ 26627 strings out of 478893
+ 514329 string characters out of 2859193
+ 822517 words of memory out of 3000000
+ 43901 multiletter control sequences out of 15000+600000
+ 411760 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,15n,124p,422b,610s stack positions out of 5000i,500n,10000p,200000b,80000s
- <C:\Users\ethan\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/public/doublestroke
-/dpi657\dsrom10.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmssi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmssi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmsy10.pfb>
-Output written on 691_Pres_rahman.pdf (6 pages, 179398 bytes).
+ 128i,15n,124p,422b,756s stack positions out of 5000i,500n,10000p,200000b,80000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmssi10.pfb>
+Output written on 691_Pres_rahman.pdf (5 pages, 929489 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
- 13 named destinations out of 1000 (max. 500000)
- 192 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 95 PDF objects out of 1000 (max. 8388607)
+ 12 named destinations out of 1000 (max. 500000)
+ 95 words of extra memory for PDF output out of 10000 (max. 10000000)
 

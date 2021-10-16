@@ -1,0 +1,33 @@
+
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Sat, Oct 16, 2021 - 4:57:52 PM
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & vote\_change.REPUBLICAN \\ 
+\hline \\[-1.8ex] 
+ perMale2019 & 25,679.630 \\ 
+  & (43,206.670) \\ 
+  & \\ 
+ perWhite2019 & $-$37,033.760 \\ 
+  & (29,214.960) \\ 
+  & \\ 
+ Constant & 3,594.208$^{***}$ \\ 
+  & (384.436) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 248 \\ 
+R$^{2}$ & 0.010 \\ 
+Adjusted R$^{2}$ & 0.002 \\ 
+Residual Std. Error & 5,679.760 (df = 245) \\ 
+F Statistic & 1.192 (df = 2; 245) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table} 

@@ -14,7 +14,7 @@ library(sf)
 library(cowplot)
 
 #Set this to true if you want to requery the census data. 
-query = TRUE
+query = FALSE
 
 # Part 1 ------------------------------------------------------------------
 #States assigned to me:

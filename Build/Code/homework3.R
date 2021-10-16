@@ -9,7 +9,7 @@ library(scales)
 library(readr)
 library(sf)
 library(cowplot)
-
+library(stargazer)
 load(file="./Build/Output/census_processed.RData") # From homework2.R
 rm(CENSUS.1, core, map1, map2, VOTES, state_nums)
 # Part 1 ------------------------------------------------------------------
@@ -95,9 +95,7 @@ core <- merge(core,
               CENSUS.3,
               by.x = c("state", "county_fips"),
               by.y = c("state", "GEOID"),
-              suffixes = c("2016", "2019")) %>%
-  mutate(d_perWhite = perWhite2019 - perWhite2016,
-         d_perMale = perMale2019 - perWhite2016)
+              suffixes = c("2019", "_change"))
 
 mod1 <-lm(vote_change.REPUBLICAN ~ perMale2019 + perWhite2019, core)
 summary(mod1)
@@ -105,19 +103,19 @@ summary(mod1)
 mod2 <-lm(vote_change.DEMOCRAT ~ perMale2019 + perWhite2019, core)
 summary(mod2)
 
-mod3 <- lm(vote_change.REPUBLICAN ~ d_perMale + d_perWhite, core)
+mod3 <- lm(vote_change.REPUBLICAN ~ perMale_change + perWhite_change, core)
 summary(mod3)
 
-mod4 <-lm(vote_change.DEMOCRAT ~ d_perMale + d_perWhite, core)
+mod4 <-lm(vote_change.DEMOCRAT ~ perMale_change + perWhite_change, core)
 summary(mod4)
 
-mod5 <- lm(vote_change.REPUBLICAN ~ d_perMale + d_perWhite + state, core)
+mod5 <- lm(vote_change.REPUBLICAN ~ perMale_change + perWhite_change + state, core)
 summary(mod5)
 
-mod6 <-lm(vote_change.DEMOCRAT ~ d_perMale + d_perWhite + state, core)
+mod6 <-lm(vote_change.DEMOCRAT ~ perMale_change + perWhite_change + state, core)
 summary(mod6)
 
-
+stargazer(mod2, type = "text", out="./Build/Code/beamer_assignment/mod2.txt")
 
 
 
