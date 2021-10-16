@@ -1,0 +1,512 @@
+\documentclass[xcolor=dvipsnames, compress, t]{beamer}
+
+\usetheme{Boadilla}
+\usecolortheme[named=MidnightBlue]{structure}
+\usepackage[english]{babel}
+\usepackage{color}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{stmaryrd}
+\usepackage{etoolbox}
+\usepackage{multicol}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+
+\usepackage{dsfont}
+\usepackage{etoolbox}
+\usepackage{accents}
+\usepackage{sgame}
+\usepackage{epstopdf}
+\usepackage{wrapfig}
+\usepackage{tabto}
+
+\setbeamertemplate{theorems}[numbered]
+\undef{\lemma}
+\newtheorem{lemma}{\translate{Lemma}} %gives own numbered lemmas
+\newtheorem{prop}{Proposition}
+\newtheorem{defin}{Definition}
+\newenvironment{sketch}[1][Sketch of Proof.]{ \begin{trivlist} \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+
+%%Special Commands
+\newcommand\munderbar[1]{%
+  \underaccent{\bar}{#1}}
+
+\newcommand{\der}{\mathrm{d}}
+\newcommand{\e}{\mathrm{e}}
+
+\newcommand{\vs}{\vspace{\baselineskip}}
+\newcommand{\vf}{\vspace{5pt}}
+\newcommand{\draw}{{\color{Plum} \bf Drawing.}} 
+	%use this if there is a drawing that you can't include
+\newcommand{\wts}[1]{{\color{Orchid} \textbf{\underline{WTS}:}  #1}} 
+	%use this for what to show!
+
+\setbeamertemplate{navigation symbols}{} 
+\setbeamertemplate{enumerate items}[default]
+
+%%Don't change things above this%%
+
+%%%%%%%%%%%%%%%%%%
+
+\title[\#4 (Topic 4)]{ECON 591: Lecture \#4}
+
+\subtitle{Topic 4: Multivariable Calculus}
+
+\author{A. Klis}
+\institute[NIU]{\vspace{-10pt} \large Northern Illinois University}
+\date{September 23, 2019}
+
+\renewcommand{\thedefin}{4.\Alph{defin}} %ended on 4.C
+\setcounter{defin}{3}
+
+\renewcommand{\thetheorem}{4.\arabic{theorem}} %ended on 4.2
+\setcounter{theorem}{2}
+
+\renewcommand{\thelemma}{4.\roman{lemma}}
+\setcounter{lemma}{0}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+\begin{frame}{From Last Time...} 
+
+Functions are rules that assign objects from one space to individual objects in another space.
+\begin{itemize}
+\item {\color{MidnightBlue}Motivating example: Production Function}
+\item Linear
+\begin{itemize}
+\item Level sets in linear $\rightarrow$ hyperplanes $a x = b$
+\item {\color{MidnightBlue} Common for econ: budget sets}
+\end{itemize} \pause
+\item Next up... Quadratic forms
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Quadratic Forms}
+
+{\color{Orchid} $$f(x) = bx^2$$} 
+
+\vspace{-\baselineskip}
+
+\begin{defin}
+A \underline{quadratic form} on $\mathds{R}^k$ is a real-valued function of the form $$Q(x_1, ..., x_k) = \sum_{i, j=1}^k a_{ij} x_i x_j.$$
+\end{defin} \pause
+
+Level curve:  $a_{11} x_1^2 + a_{12} x_1 x_2 + a_{22} x_2^2 = b$
+
+$\rightarrow$ ellipse, hyperbola, pair of lines, empty set (i.e. conic sections) 
+
+{\color{MidnightBlue} Common for econ: indifference curves}\pause
+
+\vs Matrix Representation (``Expansion around a matrix'')
+$$\begin{pmatrix}x_1 & x_2 \end{pmatrix} \begin{pmatrix} a_{11} & a_{12} \\ 0 & a_{22} \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} $$
+
+\end{frame}
+
+
+\begin{frame}{Quadratic Forms}
+
+\begin{theorem}
+The general quadratic form $Q(x_1, ..., x_n) = \sum_{i \leq j} a_{ij} x_i x_j$ can be written as
+$$\begin{pmatrix}x_1 & x_2 & \hdots & x_n\end{pmatrix} \begin{pmatrix} a_{11} & \frac{1}{2}a_{12} & \hdots & \frac{1}{2}a_{1n} \\ \frac{1}{2}a_{12} & a_{22} & \hdots & \frac{1}{2}a_{2n} \\ \vdots & &\ddots &\vdots \\  \frac{1}{2}a_{1n} & \frac{1}{2}a_{2n} & \hdots & a_{nn}\end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\x_n \end{pmatrix} $$
+or $x^T A x$, where $A$ is a unique symmetric matrix. Conversely, if $A$ is a symmetric matrix, then $Q(x) = x^T A x$ is a quadratic form.
+\end{theorem}
+
+
+\end{frame}
+
+\begin{frame}{Polynomials}
+
+Linear and quadratic are special cases of polynomials. \pause
+
+\begin{defin}
+A function $f: \mathds{R}^k \rightarrow \mathds{R}^1$ is a \underline{monomial} if it can be written as $$f(x_1, ..., x_k) = c x_1^{a_1} x_2^{a_2} ... x_k^{a_k}$$ where $c$ is a scalar and the exponents $a_1, ..., a_k$ are nonnegative integers. The sum of exponents is called the \underline{degree} of the monomial.
+\end{defin} \pause
+
+\begin{defin}
+A function $f: \mathds{R}^k \rightarrow \mathds{R}^1$ is a \underline{polynomial} if $f$ is the finite sum of monomials on $\mathds{R}^k$. The highest degree which occurs among the monomials is the degree of the polynomial.
+
+A function $f: \mathds{R}^k \rightarrow \mathds{R}^m$ is called a polynomial if each of its component functions is a real-valued polynomial.
+\end{defin}
+
+
+\end{frame}
+
+
+\begin{frame}{Continuous Functions}
+
+\begin{defin}
+Let $f$ be a function from $\mathds{R}^k$ to $\mathds{R}^m$. Let $x_0$ be a vector in $\mathds{R}^k$, and $y=f(x_0)$ its image. The function $f$ is \underline{continuous at $x_0$} if wherever $\{x_n\}_{n=1}^\infty$ is a sequence in $\mathds{R}^k$ which converges to $x_0$, then the sequence $\{f(x_n)\}_{n=1}^\infty$ in $\mathds{R}^m$ converges to $f(x_0)$.
+
+\vf The function is said to be \underline{continuous} if it is continuous at every point in its domain.
+\end{defin} \pause
+
+\vf We can write this as $f \in C^0$. \pause
+
+\vs
+\begin{theorem}
+Let $f=(f_1, ..., f_m)$ be a function from $\mathds{R}^k$ to $\mathds{R}^m$. Then $f$is continuous at $x$ iff each of its component functions $f_i:\mathds{R}^k \rightarrow \mathds{R}^1$ is continuous at $x$.
+\end{theorem}
+
+\end{frame}
+
+
+\begin{frame}{Continuous Functions}
+
+\begin{theorem}
+Let $f$ and $g$ be functions from $\mathds{R}^k$ to $\mathds{R}^m$. Suppose $f$ and $g$ are continuous at $x$. Then $f+g, f-g$ and $f\cdot g$ are all continuous at $x$.
+\end{theorem} \pause
+
+
+\vf
+\begin{proof}
+Let $\{x_n\}_{n=1}^\infty$ be a sequence converging to $x$. \pause By continuity, $f(x_n)$ converges to $f(x)$ and $g(x_n)$ converges to $g(x)$. \pause From earlier, $f(x_n) + g(x_n) = (f+g)(x_n) \rightarrow$ this converges to $f(x) + g(x) = (f+g)(x)$. \pause Therefore $f+g$ is continuous at $x$ as well. \pause
+
+\vs Ditto for $f-g$, $f\cdot g$.
+\end{proof}
+
+
+\end{frame}
+
+
+\begin{frame}{Continuous Functions}
+
+\begin{defin}
+A function $f:S \rightarrow \mathds{R}^m$, where $S$ is an open set in $\mathds{R}^n$, is said to be \underline{differentiable} at a point $x\in S$ s.t. $\exists$ an $m \times n$ matrix $A$ s.t. $\forall\, \varepsilon >0$, $\exists \, \delta > 0$ s.t. $y\in S$ and $||x-y||< \delta$  \tabto{2cm}$\Rightarrow ||f(x) - f(y) - A(x-y)|| < \varepsilon ||x - y||$.
+
+\vs Equivalently, $f$ is differentiable at $x \in S$ if $$\lim_{y\rightarrow x} \left( \frac{||f(y) - f(x) - A(y-x)||}{||y-x||}\right) = 0$$
+where $y$ represents $\forall$ sequences $y_k \rightarrow x$.
+\end{defin}
+
+The matrix $A$ is called the \underline{derivative} of $f$ at $x$ and is denoted $D f(x)$.
+
+\vs When $n = m = 1$ (so $S\in \mathds{R}$ and $f:S \rightarrow \mathds{R}$) denote $Df(x)$ as $f'(x)$.
+
+\end{frame}
+
+
+\begin{frame}{Continuous Functions}
+
+\begin{defin}
+When $f$ is differentiable on $S$, the derivative $D f$ itself forms a function from $S$ to $\mathds{R}^{m\times n}$. If $D f: S \rightarrow \mathds{R}^{m\times n}$ is a continuous function, then $f$ is said to be \underline{continuously differentiable} on $S$, and we say $f$ is $C^1$.
+\end{defin}
+
+Differentiable everywhere gives some idea of continuity, but is not the same thing as continuously differentiable. \pause
+
+\begin{theorem}
+If $f:\mathds{R}^n \rightarrow \mathds{R}^m$ and $g:\mathds{R}^n \rightarrow \mathds{R}^m$ are both differentiable at point $x \in \mathds{R}^n$, then so is $(f+g)$; and in fact $D(f+g)(x) = D f(x) + Dg(x)$.
+\end{theorem}
+
+\end{frame}
+
+
+\begin{frame}{Continuous Functions}
+
+\begin{proof}
+Choose some $\varepsilon > 0$.  $f$ differentiable \pause$\Rightarrow \, \exists \, D f(x)$ s.t. $\forall \, \varepsilon$ (particularly $\frac{\varepsilon}{2}$), $\exists \, \delta_f > 0$ s.t. for $y \in S$ \vspace{-10pt}$$||x-y||<\delta_f \Rightarrow ||f(x) - f(y) - Df(x) || \leq \frac{\varepsilon}{2} || x- y||$$ \pause
+$g$ differentiable $\Rightarrow \, \exists \, D g(x)$ s.t. for $\frac{\varepsilon}{2}, \, \exists \, \delta_g > 0$ s.t. for $y \in S$ \vspace{-10pt} $$||x-y|| < \delta_g \Rightarrow ||g(x) - g(y) - D g(x) || \leq \frac{\varepsilon}{2} ||x - y||$$ \pause
+Let $\delta = \min \{\delta_f, \delta_g\}$. \pause Then $||x-y|| < \delta \Rightarrow$ \vspace{-10pt}
+\begin{equation*}
+\begin{aligned}
+||f(x) - f(y) - Df(x) || + ||g(x) - g(y) - Dg(x) || &\leq \varepsilon ||x-y|| \\ \pause
+||f(x) - f(y) - Df(x) + g(x) -g(y) - Dg(x) || &\leq \varepsilon ||x-y|| \\ \pause
+||(f+g) (x) - (f+g)(y) - \left( Df(x) + Dg(x) \right) || &\leq \varepsilon ||x-y|| \pause
+\end{aligned}
+\end{equation*}
+Then $\left( Df(x) + Dg(x) \right) = D(f+g)(x)$.
+\end{proof}
+
+\end{frame}
+
+\begin{frame}{Vocabulary}
+
+\begin{defin} The \underline{image} of $C$ under $f$ is: $f(C) \equiv \{ b\in B: b= f(a) \, \mathrm{for \, some} \, a \, \in \, C\}$
+
+\vf The \underline{preimage} is the set of all points in the domain whose image is in $V$: $f^{-1}(V) \equiv \{a \in A: f(a) \in V\}$\end{defin} \pause
+
+$\Rightarrow$ image and preimage are inverses of each other \pause
+
+\begin{defin}
+If $\forall \, b \in B$, $\exists \, a \in A$ s.t. $b= f(a)$, or if the target space of $f$ is the image of $f$, we say $f$ maps \underline{onto} $B$ or that $f$ is \underline{surjective}.
+\end{defin} \pause
+
+\begin{defin}
+A function $f: A \rightarrow B$ is \underline{one-to-one} (or \underline{injective}) on a subset $C$ of $A$ iff $\forall \, x, y \in C$, $f(x) = f(y) \Rightarrow x = y$.  $f$ is one-to-one on $C \subseteq A$ if each $b \in f(c)$ is the image of precisely one element of $C$.
+\end{defin}
+
+\end{frame}
+
+\begin{frame}{Vocabulary}
+
+{\color{MidnightBlue} Surjective (onto) \& Injective (one-to-one)}
+
+{\bf Importance for $f(x) = b$}
+\begin{itemize}
+\item $f$ is onto if $f(x) = b$ has at least one solution for each $b$
+\item $f$ is one-to-one if $f(x) = b$ has at most one solution for each $b$
+\end{itemize} \pause
+
+\begin{defin}
+A \underline{bijective} function is a one-to-one and onto mapping of $A$ to $B$.
+\end{defin}
+
+A bijection has an inverse for sure, but other functions can as well. \pause
+
+\begin{defin}
+When $f:A\rightarrow B$ is one-to-one on a set $C \subseteq A$, there is a natural function that takes $f(C)$ back to $C$ which assigns to each $b \in f(C)$ the unique point in $C$ which is mapped to it. This map is called the \underline{inverse} of $f$ on $C$ and is written as $f^{-1}(C): f(C) \rightarrow C$.
+\end{defin}
+
+\end{frame}
+
+\begin{frame}{Composition of Functions}
+
+\begin{defin}
+Let $f: A \rightarrow B$ and $g: C \rightarrow D$ be two functions. Suppose that $B$, the image of $A$ is a subset of $C$, the domain of $g$. Then the \underline{composition} of $f$ with $g$, $g\circ f: A \rightarrow D$ is defined as $(g \circ f) (x) = g(f(x)) \, \forall \, x \in A$.
+\end{defin} \pause
+
+\begin{theorem}
+Let $f: \mathds{R}^k \rightarrow \mathds{R}^m$ be a continuous function at $x \in \mathds{R}^k$. Let $g: \mathds{R}^m \rightarrow \mathds{R}^n$ be a continuous function at $f(x) \in \mathds{R}^m$.  Then the composition $g \circ f: \mathds{R}^k \rightarrow \mathds{R}^n$ is a continuous function at $x \in \mathds{R}^k$.
+\end{theorem}\pause
+
+\begin{theorem}
+Let $f: \mathds{R}^k \rightarrow \mathds{R}^m$ and $g: \mathds{R}^m \rightarrow \mathds{R}^n$. Let $x\in \mathds{R}^k$. If $f$ is differentiable at $x$, and $g$ is differentiable at $f(x)$, then $g\circ f$ is itself differentiable at $x$, and its derivative may be obtained through the ``chain rule'' as \vspace{-10pt} $$D(g\circ f) (x) = D g(f(x)) Df(x).$$
+\end{theorem}
+
+\end{frame}
+
+
+\begin{frame}{Calculus of Several Variables}
+
+$F: \mathds{R}^n \rightarrow \mathds{R}$ 	\tabto{4cm} $F(x_1, ..., x_n) = y$
+
+We're interested in how changes in $x_i$ affect $F$.
+
+\vs \underline{Partial derivative} of $F$ wrt $x_i$ denoted $\frac{\partial F}{\partial x_i}$.
+
+\vs Recall that for one variable function $f(x)$, the derivative was defined as: $$\frac{d f(x_0)}{d x} = \lim_{h \rightarrow 0} \frac{f(x_0 + h) - f(x_0)}{h}$$ \pause
+
+\begin{defin}
+Let $f: \mathds{R}^n \rightarrow \mathds{R}$. Then $\forall \, x_i$ at each point $x^0 = (x_1^0, ..., x_n^0)$ in the domain of $f$, the \underline{partial derivative} of $f$ wrt $x_i$ is $$\frac{\partial f(x_1^0, ..., x_n^0)}{\partial x_i} = \lim_{h\rightarrow 0} \frac{f(x_1^0, ..., x_i + h, ..., x_n^0) - f(x_1^0, ..., x_i^0, ..., x_n^0)}{h}.$$
+\end{defin}
+
+\end{frame}
+
+
+\begin{frame}{EX// Cobb-Douglas Production Function}
+
+$$Q = 4 K^{\frac{3}{4}} L^{\frac{1}{4}}$$ where $K$ is capital and $L$ is labor \pause
+
+\vs At $K = 10,000$ and $L = 625, Q=20,000$ \pause
+
+Let's take the partial derivatives:
+\begin{equation*}
+\begin{aligned}
+\frac{\partial Q}{\partial K} \pause &= \left(4 L^{\frac{1}{4}}\right) \left( \frac{3}{4} K^{-\frac{1}{4}}\right) \pause = 3 \left( \frac{L}{K}\right)^{\frac{1}{4}} \, \, \, \, \, \, \, \, (MPK) \\ \pause
+\frac{\partial Q}{\partial L} \pause &=  \left(4 K^{\frac{3}{4}}\right) \left( \frac{1}{4} L^{-\frac{3}{4}}\right) \pause =  \left( \frac{K}{L}\right)^{\frac{3}{4}} \, \, \, \, \, \, \, \, (MPL) 
+\end{aligned}
+\end{equation*}
+
+\pause
+At (10,000, 625), $\frac{\partial Q}{\partial K} = 1.5, \frac{\partial Q}{\partial L} = 8$.
+
+\end{frame}
+
+\begin{frame}{Total Derivatives (5.F)}
+
+We are interested in the behavior of function $F(x_1, x_2)$ in a neighborhood of a given point $(x_1^*, x_2^*)$.
+\draw \pause
+\begin{itemize}
+\item hold $x_2$ fixed \pause $\Rightarrow$ how does $x_1$ change moving along the curve? \pause
+$$F(x_1^* + \Delta x_1, x_2^*) - F(x_1^*, x_2^*) \approx \frac{\partial F(x_1^*, x_2^*)}{\partial x_1} \Delta x_1$$ 
+
+\item \pause hold $x_1$ fixed, how does $x_2$ change?
+$$F(x_1^* , x_2^*+ \Delta x_2) - F(x_1^*, x_2^*) \approx \frac{\partial F(x_1^*, x_2^*)}{\partial x_2} \Delta x_2$$ 
+
+\item \pause Combining these, we see if we move in two directions at once: \pause
+$$F(x_1^* + \Delta x_1, x_2^*+ \Delta x_2) - F(x_1^*, x_2^*) \approx \frac{\partial F(x_1^*, x_2^*)}{\partial x_1} \Delta x_1 + \frac{\partial F(x_1^*, x_2^*)}{\partial x_2} \Delta x_2$$
+
+
+\item \pause Like describing a plane \pause
+\begin{itemize}
+\item[$\Rightarrow$] derivatives are slopes\pause
+\item[$\Rightarrow$] changes are vectors \pause
+\item[$\Rightarrow$] {\bf linear approximation of a curve}
+\end{itemize}
+\end{itemize} 
+
+\end{frame}
+
+\begin{frame}{Total Derivatives (5.F)}
+
+{\color{Orchid} $$F(x_1^* + \Delta x_1, x_2^*+ \Delta x_2) - F(x_1^*, x_2^*) \approx \frac{\partial F(x_1^*, x_2^*)}{\partial x_1} \Delta x_1 + \frac{\partial F(x_1^*, x_2^*)}{\partial x_2} \Delta x_2$$} 
+
+Put in matrix format: 
+$$\begin{pmatrix} \frac{\partial F(x_1^*, x_2^*)}{\partial x_1} & \frac{\partial F(x_1^*, x_2^*)}{\partial x_2} \end{pmatrix} \begin{pmatrix} \Delta x_1 \\ \Delta x_2 \end{pmatrix}$$
+
+We call this matrix of derivatives the \underline{Jacobian} (4.Q): $J = \{J_{ij} = \frac{\partial f_i}{\partial x_j}\}$ \pause
+
+$\rightarrow$ here just one $F$, 2 variables; expand to multivariable:
+
+\begin{equation*}
+\begin{aligned}
+D F_x &= \begin{pmatrix} \frac{\partial F(x^*)}{\partial x_1} & \hdots & \frac{\partial F(x^*)}{\partial x_n} \end{pmatrix} \\ \pause
+&= \begin{pmatrix} \frac{\partial f_1}{\partial x_1} & \hdots & \frac{\partial f_1}{\partial x_n} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial f_n}{\partial x_1} & \hdots & \frac{\partial f_n}{\partial x_n} \end{pmatrix}
+\end{aligned}
+\end{equation*}
+
+\end{frame}
+
+
+
+\begin{frame}{Inverse Function Theorem}
+
+{\color{MidnightBlue} We can think of the Jacobian as its own function, in some ways.}
+
+For $F: \mathds{R}^n \rightarrow \mathds{R}^m$ which is $C^1$, where $F(x^*) = b$ and $D{F(x^*)}$ is the $m\times n$ Jacobian, then if
+\begin{itemize}
+\item $D F(x^*)$ is onto, then $F$ is locally onto.
+\item $D F( x^*)$ is one-to-one, then $F$ is locally one-to-one.
+\end{itemize}
+
+\pause
+
+\begin{theorem}
+{\bf (Inverse Function Theorem)} Let $F: \mathds{R}^n \rightarrow \mathds{R}^n$ be a $C^1$ function with $F(x^*) = y^*$. If $D{F(x^*)}$ is nonsingular, then $\exists$ on an open ball $B_r(x^*)$ about $x^*$ and on open set $V$ about $y^*$ s.t. $F$ is a one-to-one and onto map from $B_r(x^*)$ to $V$. The natural inverse map $F^{-1}: V \rightarrow B_r(x^*)$ is also $C^1$ and $D(F(x^*)^{-1})= (DF(x^*))^{-1}$.
+\end{theorem} \pause
+$\Rightarrow$ follows from the above properties
+
+\end{frame}
+
+
+\begin{frame}{Parameterized Curves}
+
+\begin{defin}
+A \underline{curve} in $\mathds{R}^n$ is an $n$-tuple of continuous functions $$x(t) = (x_1(t), ..., x_n(t))$$ where each $x_i: \mathds{R} \rightarrow \mathds{R}$. The functions $x_i(t)$ are called \underline{coordinate functions} and $t$ is the \underline{parameter} describing the curve.
+\end{defin}
+
+\vs {\bf EX//} if $t$ is elapsed time, then $x(t)$ gives the position in $\mathds{R}^n$ on its trajectory at time $t$
+
+$\rightarrow$ distance, a common econ problem for traffic
+
+$\rightarrow$ any cts line segment
+
+\end{frame}
+
+\begin{frame}{Parameterized Curves}
+
+\begin{defin}
+The \underline{tangent vector} at $t$ is the component vector of first derivatives of $x$, i.e. $x'(t) = (x_1'(t), ..., x_n'(t))$
+\end{defin}
+$\Rightarrow$ get us back to the idea of continuously differentiable when these tangent vectors form a continuous function themselves \pause
+
+\begin{theorem}
+{\bf [Chain Rule.]} Let $F:\mathds{R}^n \rightarrow \mathds{R}^m$ and let $a: \mathds{R}^1 \rightarrow \mathds{R}^n$ be $C^1$ functions. Then, the composible function $g(t) = F(a(t))$ is a $C^1$ function from $\mathds{R}^1 \rightarrow \mathds{R}^m$ and 
+\begin{equation*}
+\begin{aligned}
+g_i'(t) &= \sum_j \frac{\partial f_i}{\partial x_j} \left( a_1(t), ..., a_n(t) \right) a_j'(t) = D f_i (a(t)) \cdot a'(t)
+\end{aligned}
+\end{equation*}
+This gives the vector equation $g'(t) = D(F \circ a)(t) = D F(a(t)) \cdot a'(t)$.
+
+\end{theorem}
+
+\end{frame}
+
+
+
+\begin{frame}{Higher-Order Derivatives}
+
+Recall $C^1$, continuously differentiable.
+
+\vs If $f'(x)$ has a continuous derivative, then $f$ is \underline{twice-continuously differentiable} (4.T), $C^2$. \pause
+
+\vs If for all derivatives, $C^\infty$
+
+\tabto{1cm} {\bf EX//} \tabto{3cm} $f(x) = e^x$
+
+\tabto{3cm} $f(x) = \frac{1}{1+x^2}$ \pause
+
+\vs If we have at least $C^1$, we can calculate some higher order derivatives.
+
+\vs $\frac{\partial f}{\partial x_i}$ is the change in $f$ wrt $x_i$
+
+$\rightarrow$ what if this is something like MPK, where we might be interested in how the variable changes that?
+
+\end{frame}
+
+
+\begin{frame}{EX// Cobb-Douglas Production Function}
+
+$$Q = 4 K^{\frac{3}{4}} L^{\frac{1}{4}}$$
+
+$$MPK = \frac{\partial Q}{\partial K} = 3 L^{\frac{1}{4}} K^{-\frac{1}{4}}$$
+
+\pause
+
+\vs How does MPK change with respect to labor? capital? \pause
+
+\begin{equation*}
+\begin{aligned}
+\frac{\partial MPK}{\partial L} \pause &= \frac{3}{4} L^{-\frac{3}{4}} K^{-\frac{1}{4}} \pause = \frac{3}{4} \frac{1}{L^{\frac{3}{4}}K^{\frac{1}{4}}}\pause \\ 
+\frac{\partial MPK}{\partial K}  &= -\frac{3}{4} L^{\frac{1}{4}} K^{-\frac{5}{4}} \pause = -\frac{3}{4} \frac{L^{\frac{1}{4}}}{K^{\frac{5}{4}}}
+\end{aligned}
+\end{equation*}
+
+
+\end{frame}
+
+\begin{frame}{Higher-Order Derivatives}
+
+$$\frac{\partial}{\partial x_j} \left( \frac{\partial f}{\partial x_i} \right) = \frac{\partial^2 f}{\partial x_j \partial x_i}$$
+\pause
+
+\begin{itemize}
+\item with $j=i$, this is $\frac{\partial^2 f}{\partial x_i^2} \rightarrow$ second derivative wrt $i$
+\item with $j \neq i$, this is a cross partial \pause
+\end{itemize}
+
+ A function of $n$ variables has $n^2$ partial derivatives \pause
+
+$\rightarrow$ put in a matrix called the {\bf Hessian (4.U)} whose $(ij)$th entry is $\frac{\partial^2 f(x^*)}{\partial x_j \partial x_i}$:
+
+$$H \equiv D^2 f_x = \begin{pmatrix} \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_2 \partial x_1} & \hdots & \frac{\partial^2 f}{\partial x_n \partial x_1} \\
+ \frac{\partial^2 f}{\partial x_1 \partial x_2} &  \frac{\partial^2 f}{\partial x_2^2} &\hdots & \frac{\partial^2 f}{\partial x_n \partial x_2} \\
+ \vdots & & \ddots & \vdots \\
+ \frac{\partial^2 f}{\partial x_1 \partial x_n}   & \frac{\partial^2 f}{\partial x_2 \partial x_n} &\hdots &  \frac{\partial^2 f}{\partial x_n^2} 
+ \end{pmatrix}$$
+
+\end{frame}
+
+\begin{frame}{Higher-Order Derivatives}
+
+ \begin{theorem}
+ {\bf [Young's Theorem.]} Suppose that $y=f(x_1, x_2, ..., x_n)$ is $C^2$ on an open region $J$ in $\mathds{R}^n$. Then $\forall \, x \in J$ and for each pair $(i, j)$:
+ $$\frac{\partial^2 f(x)}{\partial x_i \partial x_j } = \frac{\partial^2 f(x)}{\partial x_j \partial x_i}$$ 
+ \end{theorem} \pause
+ 
+ {\bf EX//} Recall Cobb-Douglas: $Q = 4 L^{\frac{1}{4}} K^{\frac{3}{4}}$ which had $\frac{\partial MPK}{\partial L}=  \frac{3}{4} \frac{1}{L^{\frac{3}{4}}K^{\frac{1}{4}}} $ \pause
+ 
+ \begin{equation*}
+\begin{aligned}
+\frac{\partial Q}{\partial L} &= L^{-\frac{3}{4}} K^{\frac{3}{4}} \pause \\
+\frac{\partial }{\partial K} \left(\frac{\partial Q}{\partial L}\right)&= L^{-\frac{3}{4}} \cdot \frac{3}{4} K^{-\frac{1}{4}} = \frac{3}{4} \frac{1}{L^{\frac{3}{4}}K^{\frac{1}{4}}}  \pause
+\end{aligned}
+\end{equation*}
+$\Rightarrow$ the Hessian is a symmetric matrix \pause
+
+\vf {\color{MidnightBlue}Higher orders:} if a function is $C^3$, then third order partials exist and are continuous and Young's Theorem holds
+
+
+\end{frame}
+
+
+\end{document}

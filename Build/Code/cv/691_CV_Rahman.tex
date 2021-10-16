@@ -1,0 +1,307 @@
+\documentclass[final]{article}
+\usepackage{fullpage}
+%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{fullpage}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{color}
+\usepackage{tabto}
+\usepackage{multicol}
+\usepackage{lmodern}
+
+\usepackage[nodayofweek]{datetime}
+\newdateformat{mydate}{\monthname[\THEMONTH] \THEYEAR}
+
+%Here is the package used to make the footer.
+\usepackage{fancyhdr}
+%Hint: Headheight should be 10pt, while headrulewidth should be 0pt
+
+\pagestyle{fancyplain}
+\renewcommand{\headrulewidth}{0pt}
+\headheight = 10pt
+
+%-------------------------------------------
+
+\begin{document}
+	
+	\def\name{Ethan Rahman
+	}
+	\title{\textbf{\name}}
+	\date{\vspace{-5ex}}
+	%This next bit of code sets up some pdf metadata.
+	\hypersetup{
+	  colorlinks = true,
+	  urlcolor = black,
+	  pdfauthor = {\name},
+	  pdfkeywords = {economics, %enter your keywords here
+	  },
+	  pdftitle = {\name: Curriculum Vitae},
+	  pdfsubject = {Curriculum Vitae},
+	  pdfpagemode = UseNone
+	}
+	
+	
+	
+	%%%%Name (in a very large font)
+	%\maketitle
+	\begin{center}
+		\Huge{\textbf{\name}}\\
+		%%email (in a smaller font)
+		\large{\href{mailto:ethanrhmn@gmail.com}{ethanrhmn@gmail.com}}\\
+		%%school name
+		\Large{\textbf{NORTHERN ILLINOIS UNIVERSITY}}
+	\end{center}
+	
+	%%%%Department and Contact Information
+	%hint: \begin{minipage}	
+	\begin{minipage}{.5\textwidth}
+		\textbf{\underline{Office Contact Information}} \\
+		Department of Economics \\
+		Northern Illinois University \\
+		250 University Circle, Zulauf Hall 515 \\
+		DeKalb, IL 60115 \\
+		\underline{\href{mailto:ethanrhmn@gmail.com}{\smash{ethanrhmn@gmail.com}}}\\
+	\end{minipage}
+	\begin{minipage}{.5\textwidth}
+		\textbf{\underline{Home Contact Information}} \\
+		Lincolnshire West Apartments \\
+		1307 West Lincoln Highway \\
+		Building 6, Apartment 6119 \\
+		DeKalb, IL, 60115 \\
+		\underline{\href{https://orcid.org/0000-0003-1113-7072}{https://orcid.org/0000-0003-1113-7072}}\\
+	\end{minipage}
+	%FYI: on  job market CV, you would include your phone number here. For this assignment, please do not.  Instead, please put the office contact information in one minipage and put your email, your website (if you have one), and your ORCID # in the other minipage under ``Home Contact Information''
+	
+	\begin{minipage}{.5\textwidth}
+		\textbf{\underline{NIU Placement Officer}} \\
+		%%The NIU placement officer is Professor Evan Anderson.	
+		Professor Evan Anderson \\
+		Email: \underline{\href{mailto:ewanderson@niu.edu}{ewanderson@niu.edu}}\\
+		Phone: N/A \\
+	\end{minipage}
+	%%The NIU placement administrator is Ms. Debra Woolbright.
+	\begin{minipage}{.5\textwidth}
+		\textbf{\underline{NIU Placement Administrator}} \\
+		Ms. Debra Woolbright \\
+		Email: \underline{\href{mailto:woolbright@niu.edu}{woolbright@niu.edu}} \\
+		%Use the Econ dept phone number available online. 
+		Phone: 815-753-1031 \\
+	\end{minipage}
+
+	
+	%%%%Doctoral Studies
+	\begin{minipage}[t]{.20\textwidth}
+		\Large{\textbf{Doctoral Studies}}
+	\end{minipage}
+	\begin{minipage}[t]{.80\textwidth}
+		Northern Illinois University \\
+		Ph.D., Economics, expected completion May 2023 \\
+		\textsc{Dissertation:} Expected Essays in Monetary Policy and Game Theory \\
+		\\
+		\textsc{Dissertation Committee and References} \\
+		\\
+		\begin{minipage}{.40\textwidth}
+			Professor Evan Anderson \\
+			Department of Economics \\
+			Northern Illinois University \\
+			250 University Circle\\
+		 	Zulauf Hall 515 \\
+			DeKalb, IL 60115 \\
+			\underline{\href{mailto:ewanderson@niu.edu}{ewanderson@niu.edu}}\\
+		\end{minipage}
+		\begin{minipage}{.40\textwidth}
+			Professor Ai-ru (Meg) Cheng \\
+			Department of Economics \\
+			Northern Illinois University \\
+			250 University Circle \\
+			Zulauf Hall 515 \\
+			DeKalb, IL 60115 \\
+			\underline{\href{mailto:acheng1@niu.edu}{acheng1@niu.edu}}\\
+		\end{minipage} \\
+		\begin{minipage}{.40\textwidth}
+			Professor Jeremy R. Groves \\
+			Department of Economics \\
+			Northern Illinois University \\
+			250 University Circle\\
+			Zulauf Hall 515 \\
+			DeKalb, IL 60115 \\
+			\underline{\href{mailto:jgroves@niu.edu}{jgroves@niu.edu}}\\
+		\end{minipage}
+		\begin{minipage}{.40\textwidth}
+			Professor Anna Klis \\
+			Department of Economics \\
+			Northern Illinois University \\
+			250 University Circle \\
+			Zulauf Hall 515 \\
+			DeKalb, IL 60115 \\
+			\underline{\href{mailto:aklis@niu.edu}{aklis@niu.edu}}\\
+		\end{minipage} \\
+		\begin{minipage}{.40\textwidth}
+			Professor Alex Garivaltis \\
+			Department of Economics \\
+			Northern Illinois University \\
+			250 University Circle \\
+			Zulauf Hall 515 \\
+			DeKalb, IL 60115 \\
+			\underline{\href{mailto:agarivaltis1@niu.edu}{agarivaltis1@niu.edu}}\\
+		\end{minipage} \\
+	\end{minipage}
+	%put in your expected completion date
+	%instead of a real dissertation title, call it something like ``Expected Essays in _____''
+	
+	%You do not have a committee yet! Please write in the names of the 5 instructors for this class. Do not include phone numbers here (we all have the same office phone number)
+	
+	%I would like you to try the \href command. For example:
+	%Email: \underline{\href{mailto:aklis@niu.edu}{\smash{aklis@niu.edu}}}
+	% If you type in a website and its underline spacing looks off, try the \smash command
+	%  Homepage: \underline{\href{http://www.annaklis.com}{\smash{http://www.annaklis.com}}}
+	
+	%%%%Prior Education
+	\begin{minipage}[t]{.20\textwidth}
+		\Large{\textbf{Prior  \mbox{Education}}}\\
+	\end{minipage}
+	\begin{minipage}[t]{.80\textwidth}
+		William Rainey Harper College \\
+		Associate of Science Degree, May 2020
+	\end{minipage}\\
+	%FYI:Citizenship is often included in a CV while you are actively on the job market. Please do not include it here.
+	
+	%%%%Languages
+	\begin{minipage}[t]{.20\textwidth}
+		\Large{\textbf{Languages}} \\
+	\end{minipage}
+	\begin{minipage}[t]{.80\textwidth}
+		English (native)
+	\end{minipage}\\
+
+	%%%%Fields (these can be expected)
+	\begin{minipage}[t]{.20\textwidth}
+		\Large{\textbf{Fields}}\\
+	\end{minipage}
+	\begin{minipage}[t]{.80\textwidth}
+		Primary Fields: Monetary Economics, Macroeconomics, Finance\\
+		Secondary Fields: Industrial Organization, Game Theory 
+	\end{minipage}\\
+
+	%%%%Skills and Other Information
+	\begin{minipage}[t]{.20\textwidth}
+		\Large{\textbf{Skills}}\\
+	\end{minipage}
+	\begin{minipage}[t]{.30\textwidth}
+		Statistics and Mathematics:\\
+		Programming Languages: 
+	\end{minipage}
+	\begin{minipage}[t]{.40\textwidth}
+		R, Stata\\
+		\LaTeX, Python, Java, C++
+		
+	\end{minipage}
+	\\
+		%Programming/computer skills:  make sure to include \LaTeX!
+	
+	%%%%Teaching Experience
+	\begin{minipage}[t]{.20\textwidth}
+		\Large{\textbf{Teaching \mbox{Experience}}}\\
+	\end{minipage}
+	\begin{minipage}[t]{.80\textwidth}
+		Practical Programming Instructor \hfill February 2019 to August 2019
+		\begin{itemize}
+			\item Python Immersive 
+			\item Python for Data Science
+		\end{itemize}
+	\end{minipage}\\
+
+	%%%%Relevant Positions/Employment
+	\begin{minipage}[t]{.20\textwidth}
+		\Large{\textbf{Relevant \mbox{Positions}}}\\
+	\end{minipage}
+	\begin{minipage}[t]{.80\textwidth}
+		Federal Reserve Bank of Chicago \hfill June 2017 to August 2017
+		\begin{itemize}
+			\item Financial Market Utilities Data Analyst
+			\begin{itemize}
+				\item Designed dashboard for quantitative disclosures made by FMUs regulated by the Chicago Fed
+				\item Used Monte Carlo simulations to forecast asset price volatility 
+			\end{itemize} 
+		\end{itemize}
+	\end{minipage}\\
+
+	%%%%Honors, Awards, and Fellowships
+	\begin{minipage}[t]{.20\textwidth}
+		\raggedright
+		\Large{\textbf{Fellowships, Honors,  \& Awards }}\\
+	\end{minipage}
+	\begin{minipage}[t]{.80\textwidth}
+		\hfil N/A\\
+	\end{minipage}\\
+	%%%%Professional Activities
+	\begin{minipage}[t]{.20\textwidth}
+		\raggedright
+		\Large{\textbf{Professional Activities}}\\
+	\end{minipage}
+	\begin{minipage}[t]{.80\textwidth}
+		\hfil N/A
+	\end{minipage}\\
+
+	%%%%Affiliations and Professional Memberships (if you have any - Illinois Economic Association?)
+	\begin{minipage}[t]{.20\textwidth}
+		\Large{\textbf{Affiliations}} \\
+	\end{minipage}
+	\begin{minipage}[t]{.80\textwidth}
+		\begin{itemize}
+			\item Alpha Phi Omega
+			\item NIU Forensics
+		\end{itemize}
+	\end{minipage}\\
+
+	%%%%Academic Service and Activities
+	\begin{minipage}[t]{.20\textwidth}
+		\Large{\textbf{Academic Service }}\\
+	\end{minipage}
+	\begin{minipage}[t]{.80\textwidth}
+		\hfil N/A
+	\end{minipage}\\
+
+	%%%%Research
+	\begin{minipage}[t]{.20\textwidth}
+		\Large{\textbf{Grants}}\\
+	\end{minipage}
+	\begin{minipage}[t]{.80\textwidth}
+		\hfil N/A
+	\end{minipage}\\
+		%Grants
+		%Publications
+	\begin{minipage}[t]{.20\textwidth}
+		\Large{\textbf{Publications}}\\
+	\end{minipage}
+	\begin{minipage}[t]{.80\textwidth}
+		 Not yet
+	\end{minipage}\\
+		%Working Papers (research in progress that you have an actual document for, that you are willing to pass around to at least some others)
+	\begin{minipage}[t]{.20\textwidth}
+		\Large{\textbf{Working \mbox{Papers}}}\\
+	\end{minipage}
+	\begin{minipage}[t]{.80\textwidth}
+		\hfil Not yet
+	\end{minipage}\\
+		%Research in Progress (stuff you wouldn't want to show to people yet)
+	\begin{minipage}[t]{.20\textwidth}
+		\Large{\textbf{Research in Progress}}\\
+	\end{minipage}
+	\begin{minipage}[t]{.80\textwidth}
+		\textbf{Information Effect or Evidence for the Fisher Effect?} \\
+		There is a large body of literature exploiting high-frequency identification on market-based forecasts of interest rates. For instance, looking at the change in the price of a Federal Funds Rate futures contract in the 15 minutes before and after an FOMC press release allows us to identify exogenous variation in interest rates. Occasionally, an unexpected rate cut seems to be associated with contradictory price changes in other kinds of financial assets, like the stock market. Standard economic theory suggests that unexpected rate cuts should cause a short run increase in output, which makes a decline in stock market prices unexpected. The most commonly accepted explanation for this is the "Fed information effect", meaning when the Fed releases monetary policy decisions it occasionally gives market actors new information about the state of the economy. I suspect some of the effect could actually be evidence for a Neo-Fisherian reaction to exogenous rate cuts. 
+	\end{minipage}
+	%On the job market, the first thing you list is your job market paper. As you can see, you also include the abstract of your JMP and any dissertation papers. If you have a lot of publications (most students do not - I didn't), then you don't need to include the paragraph for each paper.
+	
+	% For this assignment, I want you to include the section ``Research Papers''. Then, if you have some sort of paper or publication you'd like to write about, please include that. Otherwise, please write ``Not yet.'' (and with NO shame - you are at the earliest part of your career!!)
+	
+
+
+\end{document}
